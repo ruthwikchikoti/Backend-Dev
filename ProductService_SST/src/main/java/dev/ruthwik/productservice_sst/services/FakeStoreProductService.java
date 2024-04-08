@@ -12,10 +12,11 @@ public class FakeStoreProductService implements  ProductService {
     @Override
 
     public Product getProductById(Long id) {
-        // call the FakeStore API to get the product with give id
+//        throw new RuntimeException("Not implemented");
         RestTemplate restTemplate = new RestTemplate();
         FakeStoreProductDto fakeStoreProductDto = restTemplate.getForObject("http://fakestoreapi.com/products/" + id, FakeStoreProductDto.class);
         return convertFakeStoreProductDtoToProduct(fakeStoreProductDto);
+
     }
     public Product convertFakeStoreProductDtoToProduct(FakeStoreProductDto fakeStoreProductDto){
         Product product = new Product();
